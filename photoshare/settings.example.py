@@ -29,13 +29,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'photos.apps.PhotosConfig',
+    'django.contrib.admin', 'django.contrib.auth',
+    'django.contrib.contenttypes', 'django.contrib.sessions',
+    'django.contrib.messages', 'django.contrib.staticfiles',
+    'photos.apps.PhotosConfig', 'storages'
 ]
 
 MIDDLEWARE = [
@@ -124,3 +121,9 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # in production: python manage.py collectstatic
 STATICFILES_DIRS = [BASE_DIR / 'static']
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'YOUR_AWS_ACCESS_KEYID'
+AWS_SECRET_ACCESS_KEY = 'YOUR_SECRET_ACCESS_KEY'
+AWS_STORAGE_BUCKET_NAME = 'YOUR_AWS_STORAGE_BUCKET_NAME'
+AWS_QUERYSTRING_AUTH = False
