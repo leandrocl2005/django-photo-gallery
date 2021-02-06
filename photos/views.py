@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Category, Photo
 
+from django.http import JsonResponse
+
 
 # Create your views here.
 def gallery(request):
@@ -20,6 +22,18 @@ def viewPhoto(request, pk):
     photo = Photo.objects.get(id=pk)
     context = {'photo': photo}
     return render(request, 'photos/photo.html', context=context)
+
+
+## if api
+def viewPhotoApi(request, pk):
+    photo: Photo = Photo.objects.get(id=pk)
+    context = {
+        'id': pk,
+        'image': photo.image.url,
+        'description': photo.description,
+        'category': photo.category.name
+    }
+    return JsonResponse(context)
 
 
 def addPhoto(request):

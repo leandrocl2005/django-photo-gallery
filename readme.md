@@ -1,4 +1,9 @@
-- Logue na sua conta da amazon
+# Um projeto para aprender usar s3 como servidor estático
+
+Passo a passo para realizar a tarefa...
+
+## Criar um bucket s3
+
 - Procure por s3
 - Crie um bucket
 -- Dê um nome para o bucket
@@ -21,6 +26,9 @@
     ]
 }
 ```
+
+## Criando um usário com permissões limitadas
+
 - Vá em IAM user
 - Clique em adicionar usuário
 - Dê o nome e marque *Acesso programático*
@@ -28,6 +36,8 @@
 - Escolha AmazonS3FullAcess
 - Pule o passo *tags*
 - Clique em criar usuário e pronto.
+
+## Configurando a aplicação no Django
 
 - Instale boto3: `pip install boto3`
 - Instale storage: `pip install django-storages`
